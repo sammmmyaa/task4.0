@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Grid Tiles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #e0f7fa;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #004d40;
+            color: #ffffff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .burger-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            cursor: pointer;
+        }
+
+        .burger-menu span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: #ffffff;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 2rem;
+            background: #ffffff;
+            list-style: none;
+            padding: 1rem;
+            margin: 0;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .dropdown-menu li {
+            margin: 0.5rem 0;
+        }
+
+        .dropdown-menu li a {
+            color: #004d40;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .dropdown-menu.active {
+            display: block;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .box {
+            background: #ffffff;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px 0 20px 0;
+        }
+
+        .tile-title {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #004d40;
+            text-transform: uppercase;
+        }
+
+        .tile-text {
+            margin-top: 1rem;
+            line-height: 1.8;
+            color: #555;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .box-container {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tile-title {
+                font-size: 2rem;
+            }
+
+            .tile-text {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Dynamic Logo</div>
+        <div class="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="dropdown-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="box-container">
+            <div class="box">
+                <h2 class="tile-title">01</h2>
+                <div class="tile-text">Welcome to our platform! Explore dynamic features and vibrant designs tailored to your needs. Experience innovation at its finest.</div>
+            </div>
+            <div class="box">
+                <h2 class="tile-title">02</h2>
+                <div class="tile-text">Our portfolio showcases exceptional projects crafted with precision and creativity. Dive in to see our work in action.</div>
+            </div>
+            <div class="box">
+                <h2 class="tile-title">03</h2>
+                <div class="tile-text">We prioritize excellence and customer satisfaction. Connect with us to bring your ideas to life with unparalleled expertise.</div>
+            </div>
+            <div class="box">
+                <h2 class="tile-title">04</h2>
+                <div class="tile-text">Stay updated with our latest developments. Follow us to explore more insights and engage with our growing community.</div>
+            </div>
+            <div class="box">
+                <h2 class="tile-title">05</h2>
+                <div class="tile-text">Unlock the potential of technology with our solutions. Let us guide you through the journey of transformation and success.</div>
+            </div>
+            <div class="box">
+                <h2 class="tile-title">06</h2>
+                <div class="tile-text">Reach out today to begin your adventure with us. Together, we'll achieve greatness and redefine possibilities.</div>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.querySelector('.burger-menu');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            burger.addEventListener('click', () => {
+                dropdownMenu.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
